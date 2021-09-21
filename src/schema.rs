@@ -21,6 +21,7 @@ table! {
         like_status -> Int4,
         source -> Int4,
         playlist_id -> Int8,
+        play_count -> Int4,
     }
 }
 
@@ -81,6 +82,7 @@ table! {
         source -> Int4,
         created_time -> Int8,
         updated_time -> Int8,
+        album -> Nullable<Varchar>,
     }
 }
 

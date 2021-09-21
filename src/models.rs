@@ -89,7 +89,8 @@ pub struct QueryFavorites {
     pub source_id:  String,
     pub like_status:  i32,
     pub source: i32,
-    pub playlist_id: i64
+    pub playlist_id: i64,
+    pub play_count: i32
 }
 
 #[derive(Insertable)]

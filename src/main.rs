@@ -1,31 +1,26 @@
 #[macro_use] extern crate rocket;
 
-
 #[macro_use]
 extern crate diesel;
 
 mod schema;
 mod models;
 mod config;
+mod api_response;
 
 use models::QuerySongs;
 use crate::diesel::prelude::*;
 use diesel::pg::expression::dsl::any;
 use rocket::serde::Deserialize;
 use rocket::serde::Serialize;
-
+use crate::models::QueryFavorites;
+use crate::api_response::ApiResponse;
 
 #[get("/")]
 fn index() -> &'static str {
-    use crate::schema::songs::dsl::*;
+    use crate::schema::favorites::dsl::*;
     let connection = config::establish_connection();
     // https://stackoverflow.com/questions/69139883/how-to-do-a-in-query-using-diesel
-    let results = songs.filter(id.eq(1))
-        .load::<QuerySongs>(&connection)
-        .expect("Error loading posts");
-    for query_song in &results {
-        let artists_array:Vec<ArtistResponse> = serde_json::from_str(&query_song.artists.to_owned()).unwrap();
-    }
     return "ok";
 }
 
