@@ -1,6 +1,5 @@
 #[macro_use] extern crate rocket;
 
-
 #[macro_use]
 extern crate diesel;
 
@@ -8,23 +7,38 @@ mod schema;
 mod models;
 mod config;
 mod api_response;
+mod login_user_info;
+mod jwt_util;
 
 use models::QuerySongs;
 use crate::diesel::prelude::*;
+use diesel::pg::expression::dsl::any;
+use rocket::serde::Deserialize;
+use rocket::serde::Serialize;
 use crate::models::QueryFavorites;
 use crate::api_response::ApiResponse;
+use crate::login_user_info::LoginUserInfo;
+use crate::jwt_util::jwt_numeric_date::parse_jwt;
 
-#[get("/")]
-fn index() -> &'static str {
-    use crate::schema::favorites::dsl::*;
-    let connection = config::establish_connection();
-    //let input_song_id = record.id;
-    let post = diesel::update(favorites.find(id))
-        .set(play_count.eq(200))
-        .get_result::<QueryFavorites>(&connection)
-        .expect(&format!("Unable to find post {}", input_song_id));
-
+#[get("/<id>")]
+fn index(id:&str,loginUserInfo: LoginUserInfo) -> &'static str {
+    parse_jwt();
     return "ok";
+}
+
+#[derive(Debug, PartialEq, Eq, Deserialize,Serialize)]
+#[allow(non_snake_case)]
+pub struct ArtistResponse {
+    pub id: i64,
+    pub name: String
+}
+
+#[derive(Debug, PartialEq, Eq, Deserialize,Serialize)]
+#[allow(non_snake_case)]
+pub struct MusicResponse {
+    pub id: i64,
+    pub title: String,
+    pub artist: Vec<ArtistResponse>
 }
 
 #[launch]
