@@ -78,6 +78,25 @@ pub struct Favorites {
     pub source: i32
 }
 
+#[derive(Insertable, Serialize, Queryable, Deserialize,Default)]
+#[table_name = "dict"]
+pub struct QueryEdict {
+    pub id: i64,
+    pub word: String,
+    pub phonetic: String,
+    pub definition: String,
+    pub translation: String,
+    pub pos: String,
+    pub collins: String,
+    pub oxford: String,
+    pub tag: String,
+    pub bnc: i32,
+    pub frq: i32,
+    pub exchange: String,
+    pub detail: String,
+    pub audio: String,
+}
+
 #[derive(Insertable,Serialize,Queryable)]
 #[table_name="favorites"]
 pub struct QueryFavorites {

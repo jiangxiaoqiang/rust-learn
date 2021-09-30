@@ -18,11 +18,9 @@ use rocket::serde::Serialize;
 use crate::models::QueryFavorites;
 use crate::api_response::ApiResponse;
 use crate::login_user_info::LoginUserInfo;
-use crate::jwt_util::jwt_numeric_date::parse_jwt;
 
 #[get("/<id>")]
 fn index(id:&str,loginUserInfo: LoginUserInfo) -> &'static str {
-    parse_jwt();
     return "ok";
 }
 
