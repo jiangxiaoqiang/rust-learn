@@ -8,14 +8,11 @@ mod models;
 mod config;
 mod api_response;
 mod login_user_info;
-mod jwt_util;
 
-use models::QuerySongs;
 use crate::diesel::prelude::*;
 use diesel::pg::expression::dsl::any;
 use rocket::serde::Deserialize;
 use rocket::serde::Serialize;
-use crate::models::QueryFavorites;
 use crate::api_response::ApiResponse;
 use crate::login_user_info::LoginUserInfo;
 
