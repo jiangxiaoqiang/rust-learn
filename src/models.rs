@@ -1,5 +1,6 @@
 use rocket::serde::Serialize;
 use rocket::serde::Deserialize;
+use crate::schema::dict;
 
 #[derive(Insertable, Serialize, Queryable, Deserialize,Default)]
 #[table_name = "dict"]
@@ -10,8 +11,8 @@ pub struct QueryEdict {
     pub definition: String,
     pub translation: String,
     pub pos: String,
-    pub collins: String,
-    pub oxford: String,
+    pub collins: Option<i32>,
+    pub oxford: Option<i32>,
     pub tag: String,
     pub bnc: i32,
     pub frq: i32,
