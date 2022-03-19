@@ -1,11 +1,9 @@
 #[macro_use]
 extern crate diesel;
 
-mod schema;
-mod models;
+pub mod model;
 
 fn main() {
     use crate::diesel::prelude::*;
-    use crate::schema::dict;
-    let mut query = dict::table.into_boxed();
+    let mut query = crate::model::diesel::dict::dict_schema::dict::table.into_boxed();
 }
