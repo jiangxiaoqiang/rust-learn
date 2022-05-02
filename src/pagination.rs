@@ -6,6 +6,7 @@ use diesel::pg::Pg;
 use diesel::sql_types::BigInt;
 use diesel::QueryId;
 use serde::{Serialize, Deserialize};
+use crate::page_query_handler::{handle_big_table_query, handle_table_query};
 
 pub trait PaginateForQueryFragment: Sized {
     fn paginate(self, page: i64, is_big_table: bool) -> Paginated<Self>;
@@ -76,9 +77,9 @@ impl<T> QueryFragment<Pg> for Paginated<T>
 {
     fn walk_ast(&self, mut out: AstPass<Pg>) -> QueryResult<()> {
         if self.is_big_table {
-
+            handle_big_table_query(&self, out);
         }else{
-
+            handle_table_query(&self,out);
         }
         Ok(())
     }
