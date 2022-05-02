@@ -21,7 +21,6 @@ COPY --from=builder /app/settings.toml /app
 # only copy the execute file to minimal the image size
 # do not copy the release folder
 COPY --from=builder /app/target/release/rust-learn /app/
-COPY --from=builder /app/Rocket.toml /app
 CMD ["./rust-learn"]
 
 
