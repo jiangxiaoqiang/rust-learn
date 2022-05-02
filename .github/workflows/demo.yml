@@ -24,7 +24,7 @@ jobs:
       uses: steebchen/kubectl@v2.0.0
       with: 
         config: ${{ secrets.KUBE_CONFIG_DATA }}
-        command: set image --record deployment/rust-learn admin-service=${{ secrets.ALI_DOCKER_HUB_REGISTRY }}/reddwarf-pro/rust-learn:${{ github.sha }} -n reddwarf-pro
+        command: set image --record deployment/rust-learn rust-learn=${{ secrets.ALI_DOCKER_HUB_REGISTRY }}/reddwarf-pro/rust-learn:${{ github.sha }} -n reddwarf-pro
 
     - name: verify deployment
       uses: steebchen/kubectl@v2.0.0
