@@ -12,7 +12,6 @@ FROM alpine:3.15
 LABEL maintainer="jiangtingqiang@gmail.com"
 WORKDIR /app
 ENV ROCKET_ADDRESS=0.0.0.0
-# ENV ROCKET_PORT=11014
 RUN apk update && apk add --no-cache libpq curl
 COPY --from=builder /app/.env /app
 COPY --from=builder /app/settings.toml /app
