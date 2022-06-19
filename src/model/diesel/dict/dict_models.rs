@@ -13,29 +13,7 @@ use serde::Deserialize;
 use crate::model::diesel::dict::dict_schema::*;
 
 #[derive(Queryable,Debug,Serialize,Deserialize,Default)]
-//#[table_name = "test"]
 pub struct Test {
     pub id: i64,
-    pub tags: serde_json::Value,
-}
-
-#[derive(FromSqlRow, AsExpression, serde::Serialize, serde::Deserialize, Debug, Default)]
-#[sql_type = "Jsonb"]
-pub struct Meta {
-    pub error_info: Option<String>,
-    pub suggested_id_tag: Option<String>,
-}
-
-impl FromSql<Jsonb, Pg> for Test {
-    fn from_sql(bytes: Option<&[u8]>) -> diesel::deserialize::Result<Self> {
-        let value = <serde_json::Value as FromSql<Jsonb, Pg>>::from_sql(bytes)?;
-        Ok(serde_json::from_value(value)?)
-    }
-}
-
-impl ToSql<Jsonb, Pg> for Test {
-    fn to_sql<W: Write>(&self, out: &mut Output<W, Pg>) -> diesel::serialize::Result {
-        let value = serde_json::to_value(self)?;
-        <serde_json::Value as ToSql<Jsonb, Pg>>::to_sql(&value, out)
-    }
+    pub tags: i64,
 }

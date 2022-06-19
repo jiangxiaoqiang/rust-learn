@@ -5,6 +5,17 @@ edition = "2018"
 
 [dependencies]
 rocket = { version = "=0.5.0-rc.2", features = ["json"] }
+
+#
+# https://github.com/GREsau/okapi/issues/96
+# https://github.com/GREsau/okapi/issues/100
+# Fortune doc configuration
+#
+okapi = { git = "https://github.com/GREsau/okapi.git"}
+schemars = "0.7"
+rocket_okapi = { git = "https://github.com/GREsau/okapi.git", features = ["swagger", "rapidoc"] }
+
+
 serde = { version = "1.0.64", features = ["derive"] }
 serde_json = "1.0.64"
 serde_derive = "1.0"
