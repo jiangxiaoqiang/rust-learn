@@ -1,0 +1,7 @@
+[release]
+workers = 5
+log_level = "normal"
+keep_alive = 5
+port = 11016
+[debug]
+port = 11016
