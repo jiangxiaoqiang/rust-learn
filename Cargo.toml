@@ -13,3 +13,4 @@ serde_json = "1.0.64"
 rust_wheel = { git = "https://github.com/jiangxiaoqiang/rust_wheel.git", branch = "diesel2.0", features = ["model","common","rwconfig"]}
 openssl = "0.10"
 openssl-sys = "0.9"
+libpq = "3.0"
