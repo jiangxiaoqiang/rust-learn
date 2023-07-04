@@ -2,7 +2,5 @@
 rustflags = [
   "-C", "link-arg=-Wl,-Bstatic",
   "-C", "link-arg=-lssl",
-  "-C", "link-arg=-lcrypto",
-  "-C", "link-arg=-Wl,-Bdynamic",
-  "-C", "link-arg=-ldl",
+  "-C", "link-arg=-lcrypto"
 ]
