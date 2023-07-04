@@ -10,6 +10,7 @@ use controller::{
 pub mod controller;
 pub mod model;
 pub mod service;
+pub mod common;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
