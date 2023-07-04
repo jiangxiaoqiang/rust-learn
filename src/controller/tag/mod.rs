@@ -1,1 +1,1 @@
-//pub mod tag_controller;
+pub mod tag_controller;

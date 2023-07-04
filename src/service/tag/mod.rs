@@ -1,1 +1,1 @@
-//pub mod tag_service;
+pub mod tag_service;
