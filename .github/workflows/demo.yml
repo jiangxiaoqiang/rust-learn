@@ -2,7 +2,7 @@ name: rust-learn-ci
 
 on:
   push:
-    branches: [ multiple-statement ]
+    branches: [ main ]
 
 jobs:
   build:
