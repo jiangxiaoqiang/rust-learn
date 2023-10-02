@@ -17,10 +17,11 @@
                 "filter": {
                     "name": "rust-learn",
                     "kind": "bin"
-                }
+                },
+                "env": { "RUSTFLAGS": "-L ./src/so" },
             },
             "args": [],
-            "cwd": "${workspaceFolder}"
+            "cwd": "${workspaceFolder}",
         },
         {
             "type": "lldb",
