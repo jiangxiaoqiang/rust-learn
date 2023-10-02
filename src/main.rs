@@ -1,5 +1,5 @@
 use crate::synctex::{
-    synctex_display_query, synctex_node_page, synctex_scanner_input,
+    synctex_display_query, synctex_node_page,
     synctex_scanner_new_with_output_file, synctex_scanner_next_result, synctex_node_visible_h, synctex_node_visible_v, synctex_node_visible_height, synctex_node_visible_width, synctex_node_p,
 };
 use std::{ffi::CString, fs};
