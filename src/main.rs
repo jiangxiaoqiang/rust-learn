@@ -10,7 +10,7 @@ async fn main() -> std::io::Result<()> {
         App::new()
             .configure(demo_controller::config)
     })
-    .bind(("0.0.0.0", 8000))?
+    .bind(("0.0.0.0", 8002))?
     .run()
     .await
 }
