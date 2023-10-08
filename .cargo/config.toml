@@ -1,0 +1,2 @@
+[build]
+rustflags = ["-L", "/Users/xiaoqiangjiang/source/reddwarf/backend/rust-learn/src/so"]
